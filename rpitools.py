@@ -11,22 +11,19 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')
+        stats = get_stats()
+        return render_template('index.html', stats=stats)
 
 
 # API routes
 @app.route('/api/v1/system/statistics', methods=['GET'])
-def get_stats():
+def api_stats():
     if request.method == 'GET':
-        data = {
-            "cpu_usage": psutil.cpu_percent(),
-            "mem_usage": psutil.phymem_usage()[3]
-        }
-        return jsonify(**data)
+        return jsonify(**get_stats())
 
 
 @app.route('/api/v1/system/shutdown', methods=['POST'])
-def shutdown():
+def api_shutdown():
     if request.method == 'POST':
         os.system("sudo shutdown now")
         data = {
@@ -36,7 +33,7 @@ def shutdown():
 
 
 @app.route('/api/v1/system/reboot', methods=['POST'])
-def reboot():
+def api_reboot():
     if request.method == 'POST':
         os.system("sudo reboot")
         data = {
@@ -44,6 +41,13 @@ def reboot():
         }
         return jsonify(**data)
 
+
+def get_stats():
+    data = {
+        "cpu_usage": psutil.cpu_percent(),
+        "mem_usage": psutil.phymem_usage()[3]
+    }
+    return data
 
 if __name__ == '__main__':
     app.run()
