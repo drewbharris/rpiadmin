@@ -16,7 +16,6 @@ ROM import for use with RetroPie (in progress)
     cd rpitools
     virtualenv venv
     . venv/bin/activate
-    pip install Flask
-    python rpitools.py
+    pip install -r requirements.txt
 
     

@@ -7,12 +7,14 @@ from flask import jsonify
 app = Flask(__name__)
 
 
+# Main web application
 @app.route('/', methods=['GET'])
 def index():
     if request.method == 'GET':
         return render_template('index.html')
 
 
+# API routes
 @app.route('/api/v1/system/statistics', methods=['GET'])
 def get_stats():
     if request.method == 'GET':
