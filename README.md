@@ -6,9 +6,17 @@ tasks on the Raspberry Pi (well, specifically for my uses as a game and media co
 
 ### components
 
-Flask web server/admin panel with safe shutdown, reboot, system stats, etc. (todo)
+Flask web server/admin panel with safe shutdown, reboot, system stats, etc. (in progress)
 
-ROM import for use with RetroPie
+ROM import for use with RetroPie (in progress)
 
+## install
+
+    git clone
+    cd rpitools
+    virtualenv venv
+    . venv/bin/activate
+    pip install Flask
+    python rpitools.py
 
     
