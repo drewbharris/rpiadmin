@@ -26,7 +26,7 @@ def api_stats():
 @app.route('/api/v1/system/shutdown', methods=['POST'])
 def api_shutdown():
     if request.method == 'POST':
-        os.system("sudo shutdown now")
+        # os.system("sudo shutdown now")
         data = {
             "status": "ok"
         }
@@ -36,7 +36,7 @@ def api_shutdown():
 @app.route('/api/v1/system/reboot', methods=['POST'])
 def api_reboot():
     if request.method == 'POST':
-        os.system("sudo reboot")
+        # os.system("sudo reboot")
         data = {
             "status": "ok"
         }
