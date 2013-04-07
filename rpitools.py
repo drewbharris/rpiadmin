@@ -1,5 +1,6 @@
 import os
 import psutil
+import time
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -45,7 +46,10 @@ def api_reboot():
 def get_stats():
     data = {
         "cpu_usage": psutil.cpu_percent(),
-        "mem_usage": psutil.phymem_usage()[3]
+        "mem_usage": psutil.phymem_usage()[3],
+        "uptime": time.strftime('%H:%M',
+                                time.gmtime(round(time.time() -
+                                            psutil.BOOT_TIME)))
     }
     return data
 
