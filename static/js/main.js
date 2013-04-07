@@ -17,6 +17,7 @@ var Application = {
             setTimeout(function(){
                 $("#shutdown-alert").alert('close');
             }, 2000);
+            // $.post('/api/v1/system/shutdown');
         });
 
         $("#reboot").on('click', function(){
@@ -27,6 +28,7 @@ var Application = {
             setTimeout(function(){
                 $("#reboot-alert").alert('close');
             }, 2000);
+            // $.post('/api/v1/system/reboot');
         });
 
         $("#launch-xbmc").on('click', function(){
