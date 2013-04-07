@@ -1,8 +1,7 @@
-# rpitools
+# rpiadmin
 
 
-A collection of Python scripts for use on the Raspberry Pi.  Eventually this will be a nice module designed for doing common
-tasks on the Raspberry Pi (well, specifically for my uses as a game and media console).
+A Python admin console web application for the Raspberry Pi.
 
 ### Components
 
@@ -13,7 +12,7 @@ ROM import for use with RetroPie (in progress)
 ## Install
 
     git clone
-    cd rpitools
+    cd rpiadmin
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
