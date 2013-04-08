@@ -16,6 +16,12 @@ ROM import for use with RetroPie (in progress)
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
+
+## Running
+
+Use the environment variable RPI_ENV if you want the system calls to work (only makes sense on a Raspberry Pi).
+
+    RPI_ENV=production python rpiadmin.py
     
 ## License
 

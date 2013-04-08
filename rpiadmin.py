@@ -26,7 +26,8 @@ def api_stats():
 @app.route('/api/v1/system/shutdown', methods=['POST'])
 def api_shutdown():
     if request.method == 'POST':
-        # os.system("sudo shutdown now")
+        if os.environ.get('RPI_ENV') == 'production':
+            os.system("sudo shutdown now")
         data = {
             "status": "ok"
         }
@@ -36,7 +37,32 @@ def api_shutdown():
 @app.route('/api/v1/system/reboot', methods=['POST'])
 def api_reboot():
     if request.method == 'POST':
-        # os.system("sudo reboot")
+        if os.environ.get('RPI_ENV') == 'production':
+            os.system("sudo reboot")
+        data = {
+            "status": "ok"
+        }
+        return jsonify(**data)
+
+
+@app.route('/api/v1/lauch/xbmc', methods=['POST'])
+def api_launch_xbmc():
+    if request.method == 'POST':
+        if os.environ.get('RPI_ENV') == 'production':
+            os.system("pkill emulationstation")
+            os.system("xbmc-standalone &")
+        data = {
+            "status": "ok"
+        }
+        return jsonify(**data)
+
+
+@app.route('/api/v1/lauch/emulationstation', methods=['POST'])
+def api_launch_emulationstation():
+    if request.method == 'POST':
+        if os.environ.get('RPI_ENV') == 'production':
+            os.system("pkill xbmc")
+            os.system("emulationstation &")
         data = {
             "status": "ok"
         }
