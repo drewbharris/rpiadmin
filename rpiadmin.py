@@ -45,7 +45,7 @@ def api_reboot():
         return jsonify(**data)
 
 
-@app.route('/api/v1/lauch/xbmc', methods=['POST'])
+@app.route('/api/v1/launch/xbmc', methods=['POST'])
 def api_launch_xbmc():
     if request.method == 'POST':
         if os.environ.get('RPI_ENV') == 'production':
@@ -57,7 +57,7 @@ def api_launch_xbmc():
         return jsonify(**data)
 
 
-@app.route('/api/v1/lauch/emulationstation', methods=['POST'])
+@app.route('/api/v1/launch/emulationstation', methods=['POST'])
 def api_launch_emulationstation():
     if request.method == 'POST':
         if os.environ.get('RPI_ENV') == 'production':
