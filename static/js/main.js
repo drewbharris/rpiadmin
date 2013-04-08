@@ -44,11 +44,11 @@ var Application = {
 
         $("#launch-emulationstation").on('click', function(){
             $("#header-alerts").append('<div class="alert manage-alert fade in">' +
-                '<button type="button" class="close" id="launch-emulationstation" data-dismiss="alert">&times;</button>' +
+                '<button type="button" class="close" id="launch-emulationstation-alert" data-dismiss="alert">&times;</button>' +
                 'Launching EmulationStation...' +
               '</div>');
             setTimeout(function(){
-                $("#launch-emulationstation").alert('close');
+                $("#launch-emulationstation-alert").alert('close');
             }, 2000);
             $.post('/api/v1/launch/emulationstation');
         });
