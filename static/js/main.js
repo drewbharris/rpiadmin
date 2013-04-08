@@ -53,6 +53,46 @@ var Application = {
             $.post('/api/v1/launch/emulationstation');
         });
 
+        $("#start-transmission").on('click', function(){
+            $("#header-alerts").append('<div class="alert manage-alert fade in">' +
+                '<button type="button" class="close" id="start-transmission-alert" data-dismiss="alert">&times;</button>' +
+                'Starting Transmission...' +
+              '</div>');
+            setTimeout(function(){
+                $("#start-transmission-alert").alert('close');
+            }, 2000);
+        });
+
+        $("#stop-transmission").on('click', function(){
+            $("#header-alerts").append('<div class="alert manage-alert fade in">' +
+                '<button type="button" class="close" id="stop-transmission-alert" data-dismiss="alert">&times;</button>' +
+                'Stopping Transmission...' +
+              '</div>');
+            setTimeout(function(){
+                $("#stop-transmission-alert").alert('close');
+            }, 2000);
+        });
+
+        $("#restart-transmission").on('click', function(){
+            $("#header-alerts").append('<div class="alert manage-alert fade in">' +
+                '<button type="button" class="close" id="restart-transmission-alert" data-dismiss="alert">&times;</button>' +
+                'Restarting Transmission...' +
+              '</div>');
+            setTimeout(function(){
+                $("#restart-transmission-alert").alert('close');
+            }, 2000);
+        });
+
+        $("#import-roms").on('click', function(){
+            $("#header-alerts").append('<div class="alert manage-alert fade in">' +
+                '<button type="button" class="close" id="import-roms-alert" data-dismiss="alert">&times;</button>' +
+                'Importing ROMs...' +
+              '</div>');
+            setTimeout(function(){
+                $("#import-roms-alert").alert('close');
+            }, 2000);
+        });
+
         if (!window.location.hash.length){
             this.setActive('#home');
             return this.renderContent('#home');
